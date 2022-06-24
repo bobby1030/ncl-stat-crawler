@@ -43,6 +43,12 @@ filelist = (
     .groupby(["county", "latestRec"])
     .head(1)
 )
+
+try:
+    os.mkdir("./output")
+except FileExistsError:
+    pass
+
 filelist.to_csv("./output/filelist.csv", index=False)
 
 
